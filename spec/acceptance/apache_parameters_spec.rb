@@ -2,29 +2,10 @@ require 'spec_helper_acceptance'
 require_relative './version.rb'
 
 describe 'apache parameters' do
-  # Currently this test only does something on FreeBSD.
-  describe 'default_confd_files => false' do
-    it 'doesnt do anything' do
-      pp = "class { 'apache': default_confd_files => false }"
-      apply_manifest(pp, catch_failures: true)
-    end
-
-    if fact('osfamily') == 'FreeBSD'
-      describe file("#{$confd_dir}/no-accf.conf.erb") do
-        it { is_expected.not_to be_file }
-      end
-    end
-  end
   describe 'default_confd_files => true' do
     it 'copies conf.d files' do
       pp = "class { 'apache': default_confd_files => true }"
       apply_manifest(pp, catch_failures: true)
-    end
-
-    if fact('osfamily') == 'FreeBSD'
-      describe file("#{$confd_dir}/no-accf.conf.erb") do
-        it { is_expected.to be_file }
-      end
     end
   end
 
