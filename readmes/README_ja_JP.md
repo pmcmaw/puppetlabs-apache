@@ -222,7 +222,7 @@
 [Puppet Forge]: https://forge.puppet.com
 [Puppet]: https://puppet.com
 [Puppetモジュール]: https://docs.puppet.com/puppet/latest/reference/modules_fundamentals.html
-[Puppetモジュールのコード]: https://github.com/puppetlabs/puppetlabs-apache/blob/master/manifests/default_mods.pp
+[Puppetモジュールのコード]: https://github.com/puppetlabs/puppetlabs-apache/blob/main/manifests/default_mods.pp
 [`purge_configs`]: #purge_configs
 [`purge_vhost_dir`]: #purge_vhost_dir
 [Python]: https://www.python.org/
@@ -318,7 +318,7 @@
 - Apacheモジュール
 - バーチャルホスト
 - リッスンするポート
-- FreeBSDおよびGentooの`/etc/make.conf` 
+- FreeBSDおよびGentooの`/etc/make.conf`
 
 Gentooでは、このモジュールは [`gentoo/puppet-portage`][] Puppetモジュールに依存します。Gentooについては、いくつかのオプションが適用され、一部の機能や設定が有効になりますが、このモジュールに[対応するオペレーティングシステム][]ではない点に留意してください。
 
@@ -528,7 +528,7 @@ apache::vhost { 'subdomain.loc':
 
 * [`suphp_engine`][]、suPHPエンジンを有効にします。
 * [`suphp_addhandler`][]、MIMEタイプを定義します。
-* [`suphp_configpath`][]、suPHPがPHPインタープリタに渡すパスを設定します。 
+* [`suphp_configpath`][]、suPHPがPHPインタープリタに渡すパスを設定します。
 * [`directory`][]、ディレクトリ、ファイル、ロケーションの各ディレクティブブロックを設定します。
 
 例:　
@@ -752,7 +752,7 @@ apache::vhost { 'www':
 }
 ```
 
-<a id="load-balancing-examples"></a> 
+<a id="load-balancing-examples"></a>
 ### ロードバランシングの例
 
 Apacheは、[`mod_proxy`][] Apacheモジュールを通じて、複数のグループのサーバにわたるロードバランシングをサポートしています。Puppetでは、[`apache::balancer`][]および[`apache::balancermember`][]定義タイプにより、Apacheロードバランシンググループ(バランサクラスタとも呼ばれます)をサポートしています。
@@ -800,7 +800,7 @@ apache::balancer { 'puppet01':
 
 ロードバランシングのスケジューラのアルゴリズム(`lbmethod`)は、[mod_proxy_balancerドキュメント](https://httpd.apache.org/docs/current/mod/mod_proxy_balancer.html)に記載されています。
 
-<a id="reference"></a> 
+<a id="reference"></a>
 ## リファレンス
 
 - [**パブリッククラス**](#public-classes)
@@ -949,7 +949,7 @@ Apacheサーバのデフォルトの証明書認証局を設定します。
 
 ##### `default_ssl_chain`
 
-デフォルトの[SSLチェーン][]の保存場所を設定します。 
+デフォルトの[SSLチェーン][]の保存場所を設定します。
 
 デフォルト値を使えばApacheサーバは機能しますが、本稼働環境にこのサーバをデプロイする前に、各自のSSLチェーンを用いてこのパラメータを更新する**必要があります**。
 
@@ -1019,7 +1019,7 @@ apache::vhost { 'default-ssl':
 
 ##### `default_type`
 
-_Apache 2.2のみ_。サーバが他の方法で適切な`content-type`を決定できない場合に送信される[MIME `content-type`][]を設定します。このディレクティブはApache 2.4以降では廃止予定になっており、設定ファイルの下位互換性確保の目的でのみ使われます。 
+_Apache 2.2のみ_。サーバが他の方法で適切な`content-type`を決定できない場合に送信される[MIME `content-type`][]を設定します。このディレクティブはApache 2.4以降では廃止予定になっており、設定ファイルの下位互換性確保の目的でのみ使われます。
 
 デフォルト値: `undef`。
 
@@ -1107,7 +1107,7 @@ HTTPプロトコルチェックの厳密さを指定します。
 
 ##### `keepalive`
 
-[`KeepAlive`][]ディレクティブによってHTTPの持続的接続を有効にするかどうかを決定します。 'On'に設定する場合は、[`keepalive_timeout`][]および[`max_keepalive_requests`][]パラメータを使って関連オプションを設定してください。 
+[`KeepAlive`][]ディレクティブによってHTTPの持続的接続を有効にするかどうかを決定します。 'On'に設定する場合は、[`keepalive_timeout`][]および[`max_keepalive_requests`][]パラメータを使って関連オプションを設定してください。
 
 値: 'Off'、'On'。
 
@@ -1255,7 +1255,7 @@ class { 'apache':
 
 HTTPDプロセスに関してロードおよび設定する[マルチプロセッシングモジュール][] (MPM)を決定します。値: 'event'、'itk'、'peruser'、'prefork'、'worker'、`false`。
 
-カスタムパラメータを用いて以下のクラスを明示的に宣言するためには、このパラメータを`false`に設定する必要があります。 
+カスタムパラメータを用いて以下のクラスを明示的に宣言するためには、このパラメータを`false`に設定する必要があります。
 
 - [`apache::mod::event`][]
 - [`apache::mod::itk`][]
@@ -1450,7 +1450,7 @@ Apacheの [`UseCanonicalName`][]ディレクティブを制御します。この
 
 ##### `use_systemd`
 
-systemdモジュールをCentos 7サーバにインストールするかどうかを制御します。これは、カスタムビルトのRPMを使用している場合は特に役立ちます。 
+systemdモジュールをCentos 7サーバにインストールするかどうかを制御します。これは、カスタムビルトのRPMを使用している場合は特に役立ちます。
 
 ブーリアン。
 
@@ -1790,7 +1790,7 @@ class{'apache::mod::dumpio':
 
   デフォルト値: '150'。
 
-* `maxconnectionsperchild` (_Apache 2.3.8以前_: `maxrequestsperchild`): モジュールの[`MaxConnectionsPerChild`][]ディレクティブで、子サーバが稼働中に処理する接続の数を制限します。`false`に設定すると、このパラメータが削除されます。 
+* `maxconnectionsperchild` (_Apache 2.3.8以前_: `maxrequestsperchild`): モジュールの[`MaxConnectionsPerChild`][]ディレクティブで、子サーバが稼働中に処理する接続の数を制限します。`false`に設定すると、このパラメータが削除されます。
 
   デフォルト値: '0'。
 
@@ -1806,7 +1806,7 @@ class{'apache::mod::dumpio':
 
   デフォルト値: '2'。
 
-* `threadlimit`: モジュールの[`ThreadLimit`][]ディレクティブで、イベントスレッドの数を制限します。`false`に設定すると、このパラメータが削除されます。 
+* `threadlimit`: モジュールの[`ThreadLimit`][]ディレクティブで、イベントスレッドの数を制限します。`false`に設定すると、このパラメータが削除されます。
 
   デフォルト値: '64'。
 
@@ -1844,7 +1844,7 @@ class{'apache::mod::dumpio':
 
   デフォルト値: `undef`。
 
-- `cas_cookie_domain`: `Set-Cookie` HTTPヘッダの`Domain=`パラメータの値を設定します。 
+- `cas_cookie_domain`: `Set-Cookie` HTTPヘッダの`Domain=`パラメータの値を設定します。
 
   デフォルト値: `undef`。
 
@@ -2048,7 +2048,7 @@ class { '::apache::mod::cluster':
 
   デフォルト値: 0。
 
-* `enable_mcpm_receive`: MCPMを有効にするかどうか。 
+* `enable_mcpm_receive`: MCPMを有効にするかどうか。
 
   デフォルト値: `true`。
 
@@ -2361,7 +2361,7 @@ $workers_file_content = {
 
 **mount\_file\_content**
 
-各ディレクティブにはフォーマット`<URI> = <Worker name>`があります。このマップは複数ハッシュのハッシュとして表され、外側のハッシュはワーカーを指定し、内側の各ハッシュは次の2つのアイテムを含みます: 
+各ディレクティブにはフォーマット`<URI> = <Worker name>`があります。このマップは複数ハッシュのハッシュとして表され、外側のハッシュはワーカーを指定し、内側の各ハッシュは次の2つのアイテムを含みます:
 * uri_list&mdash - ワーカーにマップするURIを用いた配列
 * comment&mdash - ワーカーに関するコメントを記したオプションの文字列
 例えば、以下のマウントファイルは図2のようにパラメータ化します。
@@ -2913,7 +2913,7 @@ Trustwaveの[`mod_security`][]をインストールして設定します。こ�
 
 **パラメータ**:　
 
-* `activated_rules`: `modsec_crs_path`のルールの[配列][]またはsymlinkを使用してアクティベートする絶対値。 
+* `activated_rules`: `modsec_crs_path`のルールの[配列][]またはsymlinkを使用してアクティベートする絶対値。
 * `allowed_methods`: 許可されるHTTPメソッドのスペース区切りリスト。
 
   デフォルト値: 'GET HEAD POST OPTIONS'。
@@ -2930,7 +2930,7 @@ Trustwaveの[`mod_security`][]をインストールして設定します。こ�
 
   デフォルト値: `true`。
 
-* `modsec_dir`: Puppetがmodsec設定およびアクティベートされたルールリンクをインストールする場所のパスを定義します。 
+* `modsec_dir`: Puppetがmodsec設定およびアクティベートされたルールリンクをインストールする場所のパスを定義します。
 
   デフォルト値: 'On'、[`apache::params`][]の`modsec_dir`により設定。
 ${modsec\_dir}/activated\_rules。
@@ -2995,7 +2995,7 @@ ${modsec\_dir}/activated\_rules。
 
   デフォルト値: 3。
 
-* `notice_anomaly_score`: OWASP ModSecurityコアルールセットのコラボレーティブ検出モードに関して、通知深刻度レベルのスコアリングポイントを設定します。 
+* `notice_anomaly_score`: OWASP ModSecurityコアルールセットのコラボレーティブ検出モードに関して、通知深刻度レベルのスコアリングポイントを設定します。
 
 デフォルト値: 2。
 
@@ -3007,7 +3007,7 @@ ${modsec\_dir}/activated\_rules。
 
   デフォルト値: '13107200'。
 
-* `secrequestbodynofileslimit`: バッファリングに関してModSecurityが受け入れる最大リクエストボディサイズを設定します。リクエスト内でトランスポートされたファイルのサイズは除外されます。 
+* `secrequestbodynofileslimit`: バッファリングに関してModSecurityが受け入れる最大リクエストボディサイズを設定します。リクエスト内でトランスポートされたファイルのサイズは除外されます。
 
   デフォルト値: '131072'。
 
@@ -3075,7 +3075,7 @@ FreeBSDに`conf.d`を含めます。
 
 #### クラス: `apache::params`
 
-各種のオペレーティングシステムのApacheパラメータを管理します。 
+各種のオペレーティングシステムのApacheパラメータを管理します。
 
 #### クラス: `apache::service`
 
@@ -3083,7 +3083,7 @@ Apacheデーモンを管理します。
 
 #### クラス: `apache::version`
 
-オペレーティングシステムに基づき、Apacheバージョンの自動検出を試みます。 
+オペレーティングシステムに基づき、Apacheバージョンの自動検出を試みます。
 
 ##### Red Hat Software Collections (SCL)
 
@@ -3201,7 +3201,7 @@ Apacheサーバの`conf.d`ディレクトリにカスタム設定ファイルを
 
 ##### `confdir`　
 
-Puppetが設定ファイルを置くディレクトリを設定します。 
+Puppetが設定ファイルを置くディレクトリを設定します。
 
 デフォルト値: [`$::apache::confd_dir`][`confd_dir`]の値。
 
@@ -3267,7 +3267,7 @@ FastCGIのホスト名またはIPアドレスおよびTCPポート番号(1-65535
 
 ##### `flush`
 
-アプリケーションから受信したデータを、強制的に[`mod_fastcgi`][FastCGI]がクライアントに書き込みます。デフォルトでは、アプリケーションをできるだけ早くフリーな状態にするために、`mod_fastcgi`はデータをバッファリングします。 
+アプリケーションから受信したデータを、強制的に[`mod_fastcgi`][FastCGI]がクライアントに書き込みます。デフォルトでは、アプリケーションをできるだけ早くフリーな状態にするために、`mod_fastcgi`はデータをバッファリングします。
 
 デフォルト値: `false`。
 
@@ -3395,7 +3395,7 @@ class { 'apache':
 
 ##### `access_log_format`
 
-アクセスログに、[`LogFormat`][]のニックネームかカスタムフォーマットの文字列のいずれを使うかを指定します。 
+アクセスログに、[`LogFormat`][]のニックネームかカスタムフォーマットの文字列のいずれを使うかを指定します。
 
 デフォルト値: 'combined'。
 
@@ -3421,7 +3421,7 @@ Apacheがアクセスログメッセージを送信するパイプを指定し�
 
 バーチャルホストが[`Listen`][]ステートメントを作成するかどうかを決定します。
 
-`add_listen`を`false`に設定すると、バーチャルホストは`Listen`ステートメントを作成しません。これは、`ip`パラメータを渡されていないバーチャルホストと渡されているバーチャルホストを組み合わせる場合に重要となります。 
+`add_listen`を`false`に設定すると、バーチャルホストは`Listen`ステートメントを作成しません。これは、`ip`パラメータを渡されていないバーチャルホストと渡されているバーチャルホストを組み合わせる場合に重要となります。
 
 ブーリアン。
 
@@ -3559,7 +3559,7 @@ comment => [
 
 ##### `default_vhost`
 
-任意の`apache::vhost`定義タイプを、他の`apache::vhost`定義タイプと一致しないリクエストをサーブするためのデフォルトとして設定します。 
+任意の`apache::vhost`定義タイプを、他の`apache::vhost`定義タイプと一致しないリクエストをサーブするためのデフォルトとして設定します。
 
 デフォルト値: `false`。
 
@@ -4141,7 +4141,7 @@ sengermaxrequests)を設定します。これは、アプリケーションプ�
 
 ##### `passenger_pre_start`
 
-[PassengerPreStart](https://www.phusionpassenger.com/library/config/apache/reference/#passengerprestart)を設定します。これは、プレ起動が必要とされる場合のアプリケーションのURLです。 
+[PassengerPreStart](https://www.phusionpassenger.com/library/config/apache/reference/#passengerprestart)を設定します。これは、プレ起動が必要とされる場合のアプリケーションのURLです。
 
 ##### `passenger_user`
 
@@ -4198,7 +4198,7 @@ vhostの宣言内
 
 ##### `priority`
 
-Apache HTTPD VirtualHost設定ファイルに関連するロード順序を設定します。 
+Apache HTTPD VirtualHost設定ファイルに関連するロード順序を設定します。
 
 優先順位に一致するものがない場合は、アルファベット順で最初の名前ベースのバーチャルホストが使用されます。同様に、高い優先順位を渡すと、他に一致する名前がなければ、アルファベット順で最初の名前ベースのバーチャルホストが使用されます。
 
@@ -4482,7 +4482,7 @@ ScriptAliasおよびScriptAliasMatchディレクティブは、指定した順�
 
 ##### `serveradmin`
 
-エラーページの表示時にApacheが表示するEメールアドレスを指定します。 
+エラーページの表示時にApacheが表示するEメールアドレスを指定します。
 
 デフォルト値: `undef`。
 
@@ -4802,7 +4802,7 @@ ProxyStatus On',
 
 ##### `dav`
 
-[Dav](http://httpd.apache.org/docs/current/mod/mod_dav.html#dav)の値を設定します。これにより、WebDAV HTTPメソッドを有効にするかどうかを決定します。値としては、'On'、'Off'、またはプロバイダの名前を使用できます。'On'に設定すると、`mod_dav_fs`モジュールにより実装されているデフォルトのファイルシステムプロバイダが有効になります。 
+[Dav](http://httpd.apache.org/docs/current/mod/mod_dav.html#dav)の値を設定します。これにより、WebDAV HTTPメソッドを有効にするかどうかを決定します。値としては、'On'、'Off'、またはプロバイダの名前を使用できます。'On'に設定すると、`mod_dav_fs`モジュールにより実装されているデフォルトのファイルシステムプロバイダが有効になります。
 
 ##### `dav_depth_infinity`
 
@@ -5428,7 +5428,7 @@ apache::vhost { 'sample.example.net':
 
 ##### `ssl_proxy_machine_cert`
 
-[SSLProxyMachineCertificateFile](https://httpd.apache.org/docs/current/mod/mod_ssl.html#sslproxymachinecertificatefile)ディレクティブを設定します。これにより、このサーバがリモートサーバの認証に用いる証明書とキーを保存するオールインワンファイルを指定します。このファイルは、PEMエンコード証明書ファイルを優先順に連結したものにする必要があります。 
+[SSLProxyMachineCertificateFile](https://httpd.apache.org/docs/current/mod/mod_ssl.html#sslproxymachinecertificatefile)ディレクティブを設定します。これにより、このサーバがリモートサーバの認証に用いる証明書とキーを保存するオールインワンファイルを指定します。このファイルは、PEMエンコード証明書ファイルを優先順に連結したものにする必要があります。
 
 ``` puppet
 apache::vhost { 'sample.example.net':
@@ -5441,7 +5441,7 @@ apache::vhost { 'sample.example.net':
 
 ##### `ssl_proxy_check_peer_cn`
 
-[SSLProxyCheckPeerCN](https://httpd.apache.org/docs/current/mod/mod_ssl.html#sslproxycheckpeercn)ディレクティブを設定します。これにより、リモートサーバの証明書のCNフィールドをリクエストURLのホスト名と比較するかどうかを指定します。 
+[SSLProxyCheckPeerCN](https://httpd.apache.org/docs/current/mod/mod_ssl.html#sslproxycheckpeercn)ディレクティブを設定します。これにより、リモートサーバの証明書のCNフィールドをリクエストURLのホスト名と比較するかどうかを指定します。
 
 値: 'on'、'off'。　
 
@@ -5575,7 +5575,7 @@ apache::fastcgi::server { 'php':
 
 ##### `flush`
 
-アプリケーションから受信したデータを、強制的にクライアントに書き込みます。デフォルトでは、アプリケーションをできるだけ早くフリーな状態にするために、`mod_fastcgi`はデータをバッファリングします。 
+アプリケーションから受信したデータを、強制的にクライアントに書き込みます。デフォルトでは、アプリケーションをできるだけ早くフリーな状態にするために、`mod_fastcgi`はデータをバッファリングします。
 
 ##### `faux_path`
 
@@ -5595,7 +5595,7 @@ FastCGIサーバにより処理するファイルのMIMEタイプ。
 
 #### 定義タイプ: `apache::vhost::custom`
 
-`apache::vhost::custom`定義タイプは、 `apache::custom_config`定義タイプのシンラッパーで、Apacheにおいてバーチャルホストディレクトリに固有のデフォルト設定の一部をオーバーライドします。 
+`apache::vhost::custom`定義タイプは、 `apache::custom_config`定義タイプのシンラッパーで、Apacheにおいてバーチャルホストディレクトリに固有のデフォルト設定の一部をオーバーライドします。
 
 **`apache::vhost::custom`内のパラメータ**:
 
@@ -5660,11 +5660,11 @@ Apacheが読みこむhtpasswdファイルに適したフォーマットでパス
 <a id="limitations"></a>
 ## 制約事項
 
- サポートされているオペレーティングシステムの一覧については、[metadata.json](https://github.com/puppetlabs/puppetlabs-apache/blob/master/metadata.json)を参照してください。
+ サポートされているオペレーティングシステムの一覧については、[metadata.json](https://github.com/puppetlabs/puppetlabs-apache/blob/main/metadata.json)を参照してください。
 
 ### FreeBSD
 
-FreeBSDでこのモジュールを使用するには、apache24-2.4.12 (www/apache24)以降を使用する_必要があります_。 
+FreeBSDでこのモジュールを使用するには、apache24-2.4.12 (www/apache24)以降を使用する_必要があります_。
 
 ### Gentoo
 
@@ -5741,7 +5741,7 @@ apache::vhost { 'test.server':
 ### Ubuntu 16.04
 [`apache::mod::suphp`][]クラスは、リポジトリに適合するパッケージがないため、テストされていません。
 
-<a id="development"></a> 
+<a id="development"></a>
 ## 開発
 
 ### 貢献

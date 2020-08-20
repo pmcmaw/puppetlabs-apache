@@ -94,9 +94,9 @@ _Public Classes_
 * [`apache::mod::worker`](#apachemodworker): Installs and manages the MPM `worker`.
 * [`apache::mod::wsgi`](#apachemodwsgi): Installs and configures `mod_wsgi`.
 * [`apache::mod::xsendfile`](#apachemodxsendfile): Installs `mod_xsendfile`.
-* [`apache::mpm::disable_mpm_event`](#apachempmdisable_mpm_event): 
-* [`apache::mpm::disable_mpm_prefork`](#apachempmdisable_mpm_prefork): 
-* [`apache::mpm::disable_mpm_worker`](#apachempmdisable_mpm_worker): 
+* [`apache::mpm::disable_mpm_event`](#apachempmdisable_mpm_event):
+* [`apache::mpm::disable_mpm_prefork`](#apachempmdisable_mpm_prefork):
+* [`apache::mpm::disable_mpm_worker`](#apachempmdisable_mpm_worker):
 * [`apache::vhosts`](#apachevhosts): Creates `apache::vhost` defined types.
 
 _Private Classes_
@@ -173,7 +173,7 @@ If an ldaps:// URL is specified, the mode becomes SSL and the setting of LDAPTru
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 class { 'apache': }
@@ -1631,7 +1631,7 @@ for additional documentation.
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 class { '::apache::mod::cluster':
@@ -1922,7 +1922,7 @@ for additional documentation.
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 class{'apache':
@@ -2125,7 +2125,7 @@ for additional documentation.
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 class { 'apache::mod::ext_filter':
@@ -2665,7 +2665,7 @@ for additional documentation.
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 class { '::apache::mod::jk':
@@ -3110,7 +3110,7 @@ for additional documentation.
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 class { 'apache::mod::ldap':
@@ -5570,7 +5570,7 @@ for additional documentation.
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 # Simple usage allowing access from localhost and a private subnet
@@ -6007,12 +6007,12 @@ balancer members, and then collect them on a single apache load balancer
 server.
 
 * **Note** Currently requires the puppetlabs/concat module on the Puppet Forge and uses
-storeconfigs on the Puppet Master to export/collect resources from all
+storeconfigs on the Puppet Server to export/collect resources from all
 balancer members.
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 apache::balancer { 'puppet00': }
@@ -6082,12 +6082,12 @@ implement this is to export this resource for all apache balancer member
 servers, and then collect them on the main apache load balancer.
 
 * **Note** Currently requires the puppetlabs/concat module on the Puppet Forge and
-uses storeconfigs on the Puppet Master to export/collect resources
+uses storeconfigs on the Puppet Server to export/collect resources
 from all balancer members.
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 @@apache::balancermember { 'apache':
@@ -6426,7 +6426,7 @@ workaround is to create a vhost named something else, such as `my default`, and 
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 class { 'apache':
@@ -9390,7 +9390,7 @@ Transform a supposed boolean to On or Off. Passes all other values through.
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 $trace_enable     = false
@@ -9410,7 +9410,7 @@ other given value.
 
 ##### Examples
 
-###### 
+######
 
 ```puppet
 $trace_enable     = false
@@ -9491,7 +9491,7 @@ Transform a supposed boolean to On or Off. Pass all other values through.
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 $trace_enable     = false
@@ -9511,7 +9511,7 @@ other given value.
 
 ##### Examples
 
-###### 
+######
 
 ```puppet
 $trace_enable     = false
@@ -9574,11 +9574,10 @@ Allows you to perform apache service functions
 
 Data type: `Enum[reload]`
 
-Action to perform 
+Action to perform
 
 ##### `service_name`
 
 Data type: `Optional[String[1]]`
 
-The name of the apache service 
-
+The name of the apache service

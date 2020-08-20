@@ -219,7 +219,7 @@
 [Puppet Forge]: https://forge.puppet.com
 [Puppet]: https://puppet.com
 [Puppet module]: https://docs.puppet.com/puppet/latest/reference/modules_fundamentals.html
-[Puppet module's code]: https://github.com/puppetlabs/puppetlabs-apache/blob/master/manifests/default_mods.pp
+[Puppet module's code]: https://github.com/puppetlabs/puppetlabs-apache/blob/main/manifests/default_mods.pp
 [`purge_configs`]: #purge_configs
 [`purge_vhost_dir`]: #purge_vhost_dir
 [Python]: https://www.python.org/
@@ -292,7 +292,7 @@
 5. [Limitations - OS compatibility, etc.][Limitations]
 6. [Development - Guide for contributing to the module][Development]
     - [Contributing to the apache module][Contributing]
-    
+
 <a id="module-description"></a>
 ## Module description
 
@@ -766,7 +766,7 @@ apache::vhost { 'www':
 }
 ```
 
-<a id="load-balancing-examples"></a> 
+<a id="load-balancing-examples"></a>
 ### Load balancing examples
 
 Apache supports load balancing across groups of servers through the [`mod_proxy`][] Apache module. Puppet supports configuring Apache load balancing groups (also known as balancer clusters) through the [`apache::balancer`][] and [`apache::balancermember`][] defined types.
@@ -814,10 +814,10 @@ apache::balancer { 'puppet01':
 
 Load balancing scheduler algorithms (`lbmethod`) are listed [in mod_proxy_balancer documentation](https://httpd.apache.org/docs/current/mod/mod_proxy_balancer.html).
 
-<a id="reference"></a> 
+<a id="reference"></a>
 ## Reference
 
-For information on classes, types and functions see the [REFERENCE.md](https://github.com/puppetlabs/puppetlabs-apache/blob/master/REFERENCE.md)
+For information on classes, types and functions see the [REFERENCE.md](https://github.com/puppetlabs/puppetlabs-apache/blob/main/REFERENCE.md)
 
 ### Templates
 
@@ -830,7 +830,7 @@ The Apache module has a task that allows a user to reload the Apache config with
 <a id="limitations"></a>
 ## Limitations
 
-For an extensive list of supported operating systems, see [metadata.json](https://github.com/puppetlabs/puppetlabs-apache/blob/master/metadata.json)
+For an extensive list of supported operating systems, see [metadata.json](https://github.com/puppetlabs/puppetlabs-apache/blob/main/metadata.json)
 
 ### FreeBSD
 
@@ -911,7 +911,7 @@ The [`apache::vhost::WSGIImportScript`][] parameter creates a statement inside t
 ### Ubuntu 16.04
 The [`apache::mod::suphp`][] class is untested since repositories are missing compatible packages.
 
-<a id="development"></a> 
+<a id="development"></a>
 ## Development
 
 ### Testing
